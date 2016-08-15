@@ -1,9 +1,13 @@
-FROM fedora:23
+FROM ubuntu:16.04
 
-RUN dnf -y install ansible && \
-    dnf clean all
+RUN 	apt-get update && \
+	apt-get install -y software-properties-common && \
+	apt-add-repository ppa:ansible/ansible && \
+	apt-get update && \
+	apt-get install -y ansible && \
+	rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /ansible
 WORKDIR /ansible
 
-CMD [ "/usr/bin/ansible", "--version" ]
+CMD [ "ansible", "--version" ]
