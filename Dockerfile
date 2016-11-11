@@ -4,7 +4,7 @@ RUN 	apt-get update && \
 	apt-get install -y software-properties-common && \
 	apt-add-repository ppa:ansible/ansible && \
 	apt-get update && \
-	apt-get install -y ansible=2.2.0.0-1ppa~xenial python-pip && \
+	apt-get install -y ansible=2.2.0.0-1ppa~xenial python-pip rsync && \
 	rm -rf /var/lib/apt/lists/*
 
 # digitial ocean in newest version is broken
